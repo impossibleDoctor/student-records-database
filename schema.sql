@@ -134,5 +134,6 @@ CREATE TABLE IF NOT EXISTS "scores" (
     "assessment_id" INTEGER NOT NULL,
     "value" REAL DEFAULT 0.0,
     FOREIGN KEY("student_id") REFERENCES "students"("id"),
-    FOREIGN KEY("assessment_id") REFERENCES "assessments"("id")
+    FOREIGN KEY("assessment_id") REFERENCES "assessments"("id"),
+    UNIQUE("student_id", "assessment_id")
 );
