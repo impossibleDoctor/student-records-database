@@ -47,12 +47,14 @@ The design of the database enable us to do the following:
 
 Entities are captured in SQLite tables with the following schema.
 
+_**Disclaimer**: Most parts of this section were created by ChatGPT since this is a boring and tedious work. So, many thanks to ChatGPT! 😊._
+
 <details>
   <summary>schools</summary>
 
 The `schools` table includes:
-- `id`, which specifies the unique ID for the school as an `INTEGER`. This column thus has the `PRIMARY KEY` constraint applied.
-- `name`, which is the official name of the school in `TEXT` form, given `TEXT` is appropriate for name fields.
+- `id`, which specifies the unique ID for the school as an `INTEGER`. This identifies the school hence `PRIMARY KEY` constraint is applied.
+- `name`, which is the official name of the school in `TEXT` form. Appropriate for name fields, `TEXT` is used.
 - `region`, which specifies which region in the Philippines the school belongs to. The type is specified as `TEXT` since there are regions that contain letters in it.
 - `division`, which states the division belongs to in `TEXT` type.
 </details>
@@ -62,7 +64,7 @@ The `schools` table includes:
 
 The `teachers` table includes the following.
 - `id`, which specifies the unique ID for the teacher as an `INTEGER`. This column thus has the `PRIMARY KEY` constraint applied.
-- `first_name`, which specifies the first name of the teacher as `TEXT`, given `TEXT` is appropriate for name fields.
+- `first_name`, which specifies the first name of the teacher as `TEXT`. Appropriate for name fields, `TEXT` is used.
 - `middle_initial`, which specifies the middle initial of the teacher as `TEXT`. This field is `NULLABLE` since not all people have middle initial.
 - `last_name`, which specifies the teachers's last name. `TEXT` is used for the same reason as `first_name`.'s last name. `TEXT` is used for the same reason as `first_name`.
 
@@ -74,7 +76,7 @@ Normally, this table could only contain one data assuming there is only one teac
 
 The `subjects` table includes the following.
 - `id`, which specifies the unique ID for the subject as an `INTEGER`. This column thus has the `PRIMARY KEY` constraint applied.
-- `name`, which is the official name of the subject in `TEXT` form, given `TEXT` is appropriate for name fields.
+- `name`, which is the official name of the subject in `TEXT` form. Appropriate for name fields, `TEXT` is used.
 - `level` which specifies the grade level of the subject in `INTEGER`. For non grade school subject, this might correspond to the number in the course name.
 - `track` which distinguishes the track of the subject, be it belongs to one of the following: _Academic_; _Technical-Vocational-Livelihood_; or _Sports and Arts_. For grade school subjects this is `NULLABLE`.
 </details>
@@ -84,7 +86,7 @@ The `subjects` table includes the following.
 
 The table `components` are where we store the components of a subject needed for grade computation. The table includes the following:
 - `id`, which specifies the unique ID for the component as an `INTEGER`. This column thus has the `PRIMARY KEY` constraint applied.
-- `name`, which is the name of the component in `TEXT` form, given `TEXT` is appropriate for name fields.
+- `name`, which is the name of the component in `TEXT` form. Appropriate for name fields, `TEXT` is used.
 - `percentage`, which specifies the weight of the component in relation to the computation of grades. The data should be in `REAL` type and should be less than or equal to 1.0.
 </details>
 
@@ -102,7 +104,7 @@ This table, `subject_components` is where we store the relationship between the 
 
 The `classes` table includes the following.
 - `id`, which specifies the unique ID for the class as an `INTEGER`. This column thus has the `PRIMARY KEY` constraint applied.
-- `name`, which stores the formatted name of the class in `TEXT` form, given `TEXT` is appropriate for name fields. The name should obey the following format: `{subject} {grad_level} {section_name} A.Y. {year} {sem} Sem`
+- `name`, which stores the formatted name of the class in `TEXT` form. Appropriate for name fields, `TEXT` is used. The name should obey the following format: `{subject} {grad_level} {section_name} A.Y. {year} {sem} Sem`
 - `subject_id`, which specifies the ID from the `subjects` table corresponding to the subject taught in the class.
 - `teacher_id`, which specifies the ID from the `subjects` table corresponding to the teacher that manages the class.
 - `school_id`, which specifies the ID from the `schools` table corresponding to the school where the class is taught.
