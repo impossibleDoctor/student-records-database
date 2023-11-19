@@ -2,7 +2,7 @@
 
 By _Cyrille C. Cervantes_
 
-Video overview: <URL HERE>
+Video overview: [Student Records Database - CS50 SQL Project](https://www.youtube.com/watch?v=AXD-8H0x8uE)
 
 ## Scope
 
